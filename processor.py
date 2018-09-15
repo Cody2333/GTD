@@ -12,22 +12,15 @@ plt.rcParams['figure.figsize'] = (12, 8)
 sns.set_palette('coolwarm')
 sns.set_color_codes('bright')
 
-data = pd.read_csv('./simple.csv')
+data = pd.read_csv('./gtd2.csv')
+print len(data[data['nkill'] >= 30])
+# X = pd.get_dummies(data[features])
+# X = X.T[X.var() > 0.05].T.fillna(0)
+# X = X.fillna(0)
+# X.head()
 
-features = [
-    'nkill',
-    'nwound',
-]
+# scores = KMeans(n_clusters=5).fit(X).score(X)
 
-X = pd.get_dummies(data[features])
-X = X.T[X.var() > 0.05].T.fillna(0)
-X = X.fillna(0)
-print X
-print('Shape:', X.shape)
-X.head()
-
-scores = KMeans(n_clusters=5).fit(X).score(X)
-
-data['Cluster'] = KMeans(n_clusters=5).fit_predict(X) + 1
-print scores
-print data
+# data['Cluster'] = KMeans(n_clusters=5).fit_predict(X) + 1
+# print scores
+# print data
