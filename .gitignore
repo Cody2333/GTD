@@ -1,3 +1,5 @@
 *.csv
 *.xlsx
-
+5class_cp/
+checkpoint/
+*.h5
